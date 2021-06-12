@@ -1,11 +1,4 @@
-import express from 'express';
-import dayjs from 'dayjs'
 import DataMessages from '../data/messages.js'
-
-//import { validate } from "class-validator";
-
-
-
 
 class MessagesController{
 
@@ -15,10 +8,9 @@ class MessagesController{
     }
 
     static newMessage=(req,res) =>{
-        let { to,text,type } = req.body;
-        let from = req.header("user")
 
-        console.log(from)
+        let { to,text } = req.body;
+        let from = req.header("user")
         DataMessages.insert(from,to,text)
         
         res.sendStatus(200)

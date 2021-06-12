@@ -47,6 +47,25 @@ class DataParticipants{
         return (data);
     }
 
+    /*It also update the participant status*/
+
+    static online(name){
+
+        console.log('online called')
+        let participant = data.find((person) => person.name === name);
+
+        if(!participant){
+            
+            return false;
+        }
+        console.log('existe')
+        const index = data.indexOf(participant);
+
+        data[index].lastStatus = Date.now();
+
+        return true;
+    }
+
 
 }
 
